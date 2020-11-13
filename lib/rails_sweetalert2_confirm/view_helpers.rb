@@ -29,16 +29,19 @@ module RailsSweetAlert2Confirm
     private def configure_swal_options(options)
       options[:data] ||= {}
       options[:data][:swal] ||= {}
+      options
     end
 
     private def merge_swal_remote_options(options)
       return options unless options_have_remote?(options)
       options[:data][:swal][:remote] = fetch_option(:remote, options)
+      options
     end
 
     private def merge_swal_confirm_options(options)
       return options unless options_have_confirm?(options)
       options[:data][:swal][:title] = fetch_option(:confirm, options)
+      options
     end
 
     private def fetch_option(option, options)
